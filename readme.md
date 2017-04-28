@@ -63,7 +63,7 @@ var number = 10;
 alert(number++);    //코드 실행 후에 1을 더한다.
 alert(++number);    //코드 실행 전에 1을 더한다.
 alert(number--);    //코드 실행 후에 1을 뺀다.
-alert(--number);    // 코드 실행 전에 1을 뺀다.
+alert(--number);    //코드 실행 전에 1을 뺀다.
 ```
 
 + 차례대로 10, 12, 12, 10을 출력한다.
