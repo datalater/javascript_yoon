@@ -22,9 +22,9 @@
 ### 코드
 
 ```javascript
-> document.body.innerHTML = "<h1 id='clock'></h1>"
-> var clock = document.getElementById('clock');
-> setInterval(function () {
+document.body.innerHTML = "<h1 id='clock'></h1>";
+var clock = document.getElementById('clock');
+setInterval(function () {
     clock.innerHTML = new Date().toString();
 }, 1000);
 ```
