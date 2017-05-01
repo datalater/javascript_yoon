@@ -306,5 +306,284 @@ callTenTimes(callback);
 
 ### 타이머 함수
 
+#### setTimeout(function, millisecond)
+
+```javascript
+setTimeout(function () {
+    alert('3초가 지났습니다.');
+}, 3000);
+```
++ 3초 후에 함수를 1번 실행한다.
+
+#### setInterval(function, millisecond)
+
+```javascript
+setTimeout(function () {
+    alert('3초마다 실행합니다.');
+}, 3000);
+```
+
++ 3초마다 함수를 반복해서 실행한다.
+
+#### clearTimeout(id), clearInterval(id)
+
+```javascript
+// 1초마다 경고창을 실행하는 함수를 intervalID로 할당한다.
+var intervalId = setInterval(function () {
+    alert('<h1>' + new Date() + '</h1>');
+}, 1000);
+
+// 10초 후 함수를 실행한다.
+setTimeout(function () {
+    // 타이머를 종료한다.
+    clearInterval(intervalID);
+}, 10000);
+```
+
++ 10초 동안 경고창을 계속출력한다.
+
+
+### 인코딩과 디코딩 함수
+
++ skip
+
+### 숫자변환 함수
+
+#### parseInt(), parseFloat()
+
+```javascript
+> Number('1000원')
+NaN
+> parseInt('1000원')
+1000
+> parseFloat('1.5$')
+1.5
+```
+
++ `Number()` 함수는 하나라도 숫자로 바꿀 수 없으면 NaN으로 반환한다.
++ `parseInt()` 함수는 숫자로 변환할 수 있는 부분까지 숫자로 반환한다.
+
+**끝.**
+
+---
+
+## 6. 객체
+
+### 객체 생성
+
+```javascript
+var product = {
+    제품명: '7D 건조 망고',
+    유형: '당절임',
+    원산지: '필리핀',
+}
+
+> product.제품명
+'7D 건조 망고'
+> product.['제품명']
+'7D 건조 망고'
+```
++ 객체는 중괄호로 선언한다.
++ 객체는 키(key)와 속성(property)으로 구성된다.
++ 속성에 접근할 때는 대괄호(`[]`)보다 점(`.`)을 더 많이 사용한다.
++ 단, 키 값이 따옴표로 감싸져 있는 경우 대괄호를 사용해야 한다.
+
+### 속성과 메서드
+
+```javascript
+var person = {
+    name: '윤인성',
+    eat: function(food) {
+        alert(this.name + '이 ' + food + '을/를 먹습니다.');
+    }
+};
+
+person.eat('밥');
+
+// 윤인성이 밥을/를 먹습니다.
+```
+
++ 객체의 속성 중 함수 자료형인 속성을 메서드(method)라고 부른다.
++ 위에서 `person` 객체는 두 가지 속성(property)를 가지고 있다.
+    + `name`과 `eat`
++ 그 중 함수 자료형인 `eat`은 메서드라고 부른다.
+
+### 객체와 반복문
+
+```javascript
+var product ={
+    name: 'Microsoft Windows 10',
+    price: '150,000원',
+    language: '한국어',
+    subscription: true
+};
+
+var output = '';
+for (var key in product) {
+    output += '●' + key + ': ' + product[key] + '\n';
+}
+alert(output);
+```
+
+### with 키워드
+
+```javascript
+var student = {
+    이름: '연하진',
+    국어: 92, 수학: 98
+};
+
+var output = '';
+with (student) {
+    output += '이름: ' + 이름 + '\n';
+    output += '국어: ' + 국어 + '\n';
+    output += '수학: ' + 수학 + '\n';
+}
+alert(output);
+
+// 아래 코드처럼 속성 앞에 객체를 적을 필요가 없다.
+// output += '이름: ' + student.이름 + '\n';
+// output += '국어: ' + student.국어 + '\n';
+// output += '수학: ' + student.수학 + '\n';
+```
+    + with 키워드에 객체를 넣어주면, 괄호 안에서 객체를 명시할 필요없이 속성을 쉽게 사용할 수 있다.
+
+### 속성 추가, 속성 삭제
+
+```javascript
+var product = {제품명:'7D 건조 망고'};
+
+product.원산지 = '필리핀'      // 속성 추가
+
+delete(product.원산지);       // 속성 삭제
+```
+
+### 객체와 배열을 사용한 데이터 관리
+
++ skip
+
+## 7. 생성자 함수
+
+### 생성자와 객체
+
+```javascript
+var student = new Student()
+
+// student : 객체 또는 인스턴스 (object or instance)
+// Student : 생성자 함수 (constructor)
+```
+
++ 파이썬의 `class`와 `instance` 개념과 비슷하다.
+
+### 생성자 함수 생성
+
+```javascript
+function Student() {
+
+}
+```
+
++ 파이썬의 `class`와 비슷하다.
++ 생성자 함수의 이름은 일반적으로 대문자로 시작한다.
++ 대문자로 시작하지 않아도 문제 없지만 일종의 컨벤션이다.
+
+### new
+
+```javascript
+function Student() {
+
+}
+
+var student = new Student();
+```
++ 생성자 함수로 객체를 생성할 때 `new` 키워드를 사용한다.
+
+### this
+
+```javascript
+function Student(name, highnote, lownote) {
+    this.이름 = name;
+    this.고음 = highnote;
+    this.저음 = lownote;
+}
+
+var student = new Student('음악대장', 100, 100)
+```
+
++ 파이썬의 `self`와 같다.
+
+### 프로토타입
+
+```javascript
+function Student(name, english, math) {
+    this.이름 = name;
+    this.영어 = english;
+    this.수학 = math;
+}
+
+Student.prototype.getSum = function () {
+    return this.영어 + this.수학;
+};
+Student.prototype.getAverage = function () {
+    return this.getSum() / 2;
+};
+```
+
++ 공통된 메서드가 필요할 때 프로토타입(`prototype`)으로 메서드를 만든다.
++ 생성자 함수로 생성된 객체가 공통으로 가지는 공간
+
+### 캡슐화
+
+```javascript
+function Rectangle(w, h) {
+    var width = w;
+    var height = h;
+
+    this.getWidth = function () {return w;};
+    this.getHeight = function () {return h;};
+    this.setWidth = function (w) {
+        if (w < 0) {
+            throw '길이는 음수일 수 없습니다.';
+        } else {
+            width = w;
+        }
+    };
+    this.setHeight = function (h) {
+        if (h < 0) {
+            throw '길이는 음수일 수 없습니다.';
+        } else {
+            height = h;
+        }
+    };
+}
+
+// getWidth와 getHeight 형태의 메서드와 같이 값을 가져오는 메서드를 게터(Getter)라고 한다.
+// setWidth와 setHeight 형태의 메서드와 같이 값을 입력하는 메서드를 세터(Setter)라고 한다.
+// 게터와 세터를 만드는 것도 캡슐화의 일종이다.
+```
+
++ 내가 만든 생성자 함수를 사용자가 아무렇게나 사용하지 못하도록 막는 기술을 `캡슐화`라고 한다.
++ 잘못 사용될 수 있는 객체의 특정 부분을 사용자가 사용할 수 없게 막는 기술을 `캡슐화`라고 한다.
++ 만일의 상황을 대비해서 특정 속성이나 메서드를 사용자가 사용할 수 없게 숨겨놓는 것을 `캡슐화`라고 한다.
+
+### 상속
+
+```javascript
+function Square(length) {
+    this.base = Rectnagle;
+    this.base(length, length);
+}
+
+Square.prototype = Rectangle.prototype;
+```
+
+**끝.**
+
+---
+
+## 8. 기본 내장 객체
+
+@@@ resume
+
 
 ---
