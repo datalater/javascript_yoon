@@ -22,6 +22,16 @@
 ### 코드
 
 ```javascript
+var clock = document.createElement("h1");
+clock.innerHTML = "<h1 id='clock'>시계 by JMC 2017</h1>";
+document.body.insertBefore(clock, document.body.childNodes[1]);
+var clock = document.getElementById('clock');
+setInterval(function () {
+    clock.innerHTML = new Date().toString();
+}, 1000);
+```
+
+```javascript
 document.body.innerHTML = "<h1 id='clock'></h1>";
 var clock = document.getElementById('clock');
 setInterval(function () {
@@ -34,6 +44,45 @@ setInterval(function () {
 ### 설명
 
 + `document.body.innerHTML` : HTML 내용을 문서의 body 태그 안에 넣는다.
+
+---
+
+# DOM 문법
+
+## DOM document & DOM elements
+
+### 문서 내 객체 만들기
+
+#### document.createElement()
+
+```javascript
+var clock = document.createElement("h1")     // <h1>태그를 만든다.
+```
+
+#### element.innerHTML
+
+```javascript
+clock.innerHTML = "<h1 id='clock'>시계</h1>";   // clock의 content에 HTML 내용을 채워 넣는다.
+```
+
+#### element.insertBefore()
+
+```javascript
+// body 태그의 2번째 childNodes 앞에 clock을 삽입한다.
+document.body.insertBefore(clock, document.body.childNodes[1]);
+
+// 참고로 body 태그의 1번째 childNodes는 태그 형태가 아니라 #text이다.
+```
+
+### 문서 내 객체 찾기
+
+#### document.getElementById()
+
+```javascript
+var clock = document.getElementById('clock');    // id='clock'을 가진 element를 찾는다.
+```
+
+---
 
 # JavaScript 문법
 
