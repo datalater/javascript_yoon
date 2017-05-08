@@ -1,7 +1,8 @@
 ⓒ JMC 2017
 
 **주요 소스**  
-모던 웹을 위한 JavaScript 및 jQuery 입문, 윤인성
+모던 웹을 위한 JavaScript 및 jQuery 입문, 윤인성  
+w3schools `https://www.w3schools.com/jsref/dom_obj_document.asp`
 
 **예제 코드**  
 크롬 개발자도구를 켜고 console 창에 입력하면 된다.
