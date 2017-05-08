@@ -82,6 +82,53 @@ document.body.insertBefore(clock, document.body.childNodes[1]);
 var clock = document.getElementById('clock');    // id='clock'을 가진 element를 찾는다.
 ```
 
+#### document.getElementsByTagName()
+
+```javascript
+var frame = document.getElementsByTagName("IFRAME")[0];
+
+// 첫 번째(index=0) iframe 태그를 찾는다.
+```
+
+#### document.querySelector()
+
+```javascript
+var login_input = document.querySelector("div.user-panel.main input[name=login]");
+
+// <div class="user-panel main"> 내에서 <input name="login"/> 를 사용하는 첫 element를 반환
+
+var first_p = document.querySelector("div > p");
+
+// div 태그의 child 중 첫 번째 p 태그를 반환
+
+document.querySelector("h2, h3").style.backgroundColor = "red";
+
+// h2, h3 태그의 배경색을 red로 변경
+```
+
+### 문서 내 객체에 event 추가하기
+
+#### element.addEventListener()
+
+```javascript
+document.getElementById("myBtn").addEventListener("click", function(){
+    document.getElementById("demo").innerHTML = "Hello World";
+});
+
+// "id=myBtn"인 element를 클릭하면
+// "id=demo"인 element의 content에 "Hello World"를 채워 넣는다.
+```
+
+### 문서 내 객체 삭제하기
+
+```javascript
+var willRemove = document.getElementById('will-remove');
+
+willRemove.parentNode.removeChild(willRemove);
+
+// willRemove의 부모 노드로 이동하고, 부모 노드에서 자식 노드를 삭제한다.
+```
+
 ---
 
 # JavaScript 문법
